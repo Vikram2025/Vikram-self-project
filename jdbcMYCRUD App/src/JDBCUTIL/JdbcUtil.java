@@ -1,6 +1,5 @@
 package JDBCUTIL;
 
-import java.io.FileInputStream;
 import java.io.FileNotFoundException;
 import java.io.IOException;
 import java.sql.Connection;
@@ -10,32 +9,31 @@ import java.sql.SQLException;
 import java.sql.Statement;
 import java.util.Properties;
 
+import com.zaxxer.hikari.HikariConfig;
+import com.zaxxer.hikari.HikariDataSource;
+
 public class JdbcUtil {
 	private JdbcUtil() {
-		
+	}
+	
+	static {
+		try {
+			Class.forName("com.mysql.cj.jdbc.Driver");
+		}
+		catch(ClassNotFoundException e) {
+			e.printStackTrace();
+			
+		}
 	}
 
 	public static Connection getValues() throws IOException, SQLException {
-		
-		FileInputStream FIS = new FileInputStream("ApplicationCon.properties");
-		Properties Pro = new Properties();
-		Pro.load(FIS);
-		Connection connection = DriverManager.getConnection(Pro.getProperty("url"),Pro.getProperty("user"),Pro.getProperty("password"));
-		System.out.println("connection is ready");
-		return connection;
+		String Config ="D:\\java app\\javaapplication\\jdbcMYCRUD App\\vikram.properties";
+	HikariConfig HC = new HikariConfig(Config);
+	HikariDataSource DS=new HikariDataSource(HC);
+	
+		return DS.getConnection();
 
 	}
-	public static void closingSta(Connection connection,Statement sta,ResultSet res) throws SQLException , IOException {
-		if(connection!=null) {
-			connection.close();
-		}
-		if(sta!=null) {
-			sta.close();
-		}
-		if(res!=null) {
-			res.close();
-		}
-	}
-	
+
 
 }

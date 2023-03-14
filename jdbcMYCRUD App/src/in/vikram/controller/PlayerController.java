@@ -9,7 +9,7 @@ import in.vikram.servicelayer.PlayerService;
 public class PlayerController {
 
 	public static void main(String[] args) {
-		
+		while(true) {
 		Scanner scan = new Scanner(System.in);
 		
 		System.out.println("enter the value 1 for inserting data of a player ");
@@ -19,7 +19,8 @@ public class PlayerController {
 		System.out.println("enter the value 3 for updating the data of a player ");
 		System.out.println( );
 		System.out.println("enter the value 4 for searching data of a player ");
-		
+		System.out.println( );
+		System.out.println("enetr 5 to not perform anything");
 		int myvalue = scan.nextInt() ;
 	PlayerService playerservice = PlayerServiceFactoryObj.getPlayerService();
 	
@@ -89,6 +90,12 @@ public class PlayerController {
               }
               
             }
+            
+            if(myvalue==5) {
+            	System.out.println("the  CRUD operation is been closed ");
+            	break;
+            }
+		}
 
 }
         	   

@@ -1,0 +1,35 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<web-app xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance" xmlns="http://java.sun.com/xml/ns/javaee" xsi:schemaLocation="http://java.sun.com/xml/ns/javaee http://java.sun.com/xml/ns/javaee/web-app_2_5.xsd" id="WebApp_ID" version="2.5">
+
+ 
+  <servlet>
+ 
+    <servlet-name>InisilizationPara</servlet-name>
+    <servlet-class>in.vikram.pak.InisilizationPara</servlet-class>
+     <init-param>
+    <param-name>Name</param-name>
+    <param-value>Vikram</param-value>
+     </init-param>
+      <init-param>
+    <param-name>age</param-name>
+    <param-value>25</param-value>
+     </init-param>
+      <init-param>
+    <param-name>Gender</param-name>
+    <param-value>Male</param-value>
+     </init-param>
+      <init-param>
+    <param-name>BloodType</param-name>
+    <param-value>O+</param-value>
+     </init-param>
+      <init-param>
+    <param-name>emailid</param-name>
+    <param-value>Vikram123@</param-value>
+     </init-param>
+     
+  </servlet>
+  <servlet-mapping>
+    <servlet-name>InisilizationPara</servlet-name>
+    <url-pattern>/Inisilization</url-pattern>
+  </servlet-mapping>
+</web-app>
